@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+.ngx-pagination .current {
+    padding: .1875rem .625rem;
+    background: #4B49AC!important;
+    color: #fefefe;
+    cursor: default;
+  }
+/*Button Animations*/
+.btn{
+    transition:all 0.3s ease-out;
+}
+.btn:hover{
+    transform:scale(0.95)
+}

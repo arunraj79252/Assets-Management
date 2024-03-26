@@ -1,0 +1,27 @@
+.p-field * {
+  display: block;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+/* form validation */
+
+.error {
+  border-color: #E91E63;
+  color: #E91E63;
+}
+
+.invalid-feedback {
+  display: block;
+  color: #E91E63;
+}
+
+.form-control-sm{
+  min-height: 36px!important;
+}
+
+

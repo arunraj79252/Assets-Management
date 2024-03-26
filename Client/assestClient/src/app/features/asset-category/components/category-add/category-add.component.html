@@ -1,0 +1,185 @@
+<div class="content-wrapper" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                    <!-- custom breadcrumb -->
+                    <div class="custom_breadcrumb-container">
+                        <ul class="custom_breadcrumb-breadcrumb">
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-firstChild"
+                                [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Dashboard</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item" [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Admininstration</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-lastChild">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title"> Category</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- custom breadcrumb ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="forms-sample " [formGroup]="addCategoryForm" autocomplete="off">
+        <div class="row">
+          
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="row ">
+                            <div class="card-body col-sm-10">
+                                <h4 class="card-title"><em class="fas solid fa-file-circle-plus"></em> Add Category</h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <!-- Category Name -->
+                                    <div class="form-group row ">
+                                        <label class="col-sm-3 col-form-label " for="exampleInputCategoryname1"
+                                            [ngClass]="{'error': (name?.touched && name?.errors)}">Category
+                                            Name</label>
+                                        <div class="col-sm-9">
+                                            <input id="exampleInputUsername1" class="form-control form-control-sm"
+                                                autocomplete="off" placeholder="Category Name" pInputText
+                                                formControlName="name" />
+
+                                            <!-- error block -->
+                                            <div class="invalid-feedback"
+                                                *ngIf="(name?.touched && name?.errors?.['required'])">
+                                                <sup>*</sup>Enter Category name
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group row ">
+                                        <label class="col-sm-3 col-form-label " for="exampleInputUsername1"
+                                            [ngClass]="{'error': (status?.touched && status?.errors)}">Status</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3"
+                                                pInputText formControlName="status">
+                                                <option value="0">Inactive</option>
+                                                <option value="1">Active</option>
+
+                                            </select>
+
+                                            <!-- error block -->
+                                            <div class="invalid-feedback"
+                                                *ngIf="(status?.touched && status?.errors?.['required'])">
+                                                <sup>*</sup> Status is mandatory
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body ">
+
+                        <div class="row" formArrayName="attribute">
+                            <div class="row ">
+                                <div class="card-body col-sm-10">
+                                    <h4 class="card-title"><em class="fas solid fa-file-circle-plus"></em> Add Category
+                                        Attributes </h4>
+                                </div>
+                                <div class="card-body col-sm-2">
+                                    <button type="button" class="btn btn-sm btn-outline-primary btn-fw "
+                                        (click)="addAttribute()">Add
+                                        Attribute</button>
+                                </div>
+                            </div>
+                            <section class="container  p-3"
+                                *ngFor="let attribute of attribute().controls; let i = index;" [formGroupName]="i">
+                                <div class="row ">
+                                    <div class="col-6">
+                                        <h4>Attribute {{i + 1}}</h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <!-- Attribute Name -->
+                                        <div class="form-group row ">
+                                            <label class="col-sm-3 col-form-label " for="exampleInputAttributename1"
+                                                [ngClass]="{'error': (attrib?.touched && attrib?.errors)}">Attribute
+                                                Name</label>
+
+                                            <div class="col-sm-9">
+                                                <input id="exampleInputUsername1" class="form-control form-control-sm"
+                                                    autocomplete="off" placeholder="Category Name" pInputText
+                                                    formControlName="name" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+
+                                        <div class="form-group row ">
+                                            <label class="col-sm-3 col-form-label " for="exampleInputAttributename1"
+                                                [ngClass]="{'error': (aStatus?.touched && aStatus?.errors)}">Status</label>
+
+                                            <div class="col-sm-9">
+                                               
+                                                <select class="form-control form-control-sm"
+                                                    id="exampleFormControlSelect3" placeholder="Category Name"
+                                                    pInputText formControlName="required_status">
+                                                    <option value="0">Inactive</option>
+                                                    <option value="1">Active</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-right  ">
+
+                                        <button type="button" class=" btn-sm" (click)="removeAttribute(i)">x</button>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-5"></div>
+                <div class="col-2"> <button type="button" class="btn btn-sm btn-outline-primary btn-fw "
+                        (click)="onSubmit()">Register
+                    </button></div>
+
+            </div>
+        </div>
+
+    </form>
+    <p-toast position="bottom-center" (onClose)="closeToaster()"></p-toast>
+    <br>
+    <!-- {{this.addCategoryForm.value | json}}   -->
+
+</div>

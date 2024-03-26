@@ -1,0 +1,133 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="card-body col-sm-10">
+                    <h4 class="card-title"><em class="fas fa-desktop"></em> Asset Category</h4>
+                </div>
+                <div class="card-body col-sm-2" style="display: grid">
+                    <button type="button" class="btn btn-sm btn-outline-primary btn-fw"
+                        [routerLink]="['/dashboard/category/add']">
+                        <em class="fas fa-plus"></em> Add Asset Category
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-12 mytablehead">
+                <div class="form-group row mx-1">
+                    <div class="card-body col-md-1 " style="display: grid">
+                        <b> Category Id</b>
+                    </div>
+                    <div class="card-body col-md-2 " style="display: grid">
+                        <b> Category Name</b>
+                    </div>
+                    <div class="card-body col-md-2 " style="display: grid">
+                        <b>Status</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table ">
+                <tbody>
+                    <tr *ngFor="let category of categories;let i = index;">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <div class="prefix heading">#{{i+1}} </div>
+                                    <button class="accordion-button collapsed justify-content-between" type="button"
+                                        data-bs-toggle="collapse" attr.data-bs-target="{{'#accordion'+i}}"
+                                        aria-expanded="true" attr.aria-controls="{{'accordion'+i}}">
+                                        <div class="col-md-12" id="accordiondata">
+                                            <div class="form-group row mx-1">
+                                                <div *ngIf="category.category_id.length==null;else shownull"
+                                                    class="card-body col-md-1 " style="display: grid">
+                                                    <div class="prefix">Category Id </div>
+                                                    {{category.category_id}}
+                                                </div>
+
+                                                <div class="card-body col-md-2 " style="display: grid">
+                                                    <div class="prefix">Category Name </div>
+                                                    {{category.name}}
+                                                </div>
+                                                <div class="card-body col-md-2 " style="display: grid">
+                                                    <div class="prefix">Status </div>
+                                                    {{category.status}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="{{'accordion'+i}}" class="accordion-collapse collapse "
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="custom-card">
+                                            <br><br>
+                                            <h3 class="card-title mx-4">
+                                                <em class="fas-grid-2-plus"></em>  Attributes
+                                            </h3>                             
+                                            <table class="col-md-12 tablehead">
+                                                <thead>
+                                                    <th><h4>Id</h4></th>
+
+                                                    <th><h4>  Attribute</h4></th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr  *ngFor="let attribute of category.CategoryAttributes;let j = index;">
+                                                        <td>{{attribute.category_attribute_id}}</td>
+                                                        <td>{{attribute.name}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="form-group row">
+                                                <div class="card-body col-sm-8 " style="display: grid"></div>
+                                                <div class="card-body col-sm-2" style="display: grid">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary btn-fw"
+                                                        [routerLink]="['/dashboard/category/edit']"
+                                                        (click)="goToEditPage(category)"><em class="fas fa-edit"></em>
+                                                        Edit</button>
+                                                </div>
+                                                <div class="card-body col-sm-2" style="display: grid">
+
+                                                    <button type="button" class="btn btn-sm btn-outline-primary btn-fw "
+                                                        (click)="confirmDeleteModal(content)"><em
+                                                            class="fas fa-trash"></em>
+                                                        Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal-->
+                        <ng-template #content let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Confirm Delete</h4>
+                                <button type="button" class="btn-close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure want to delete {{category.name}} ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-fw"
+                                    (click)="deleteCategory(category.category_id);modal.close('Close click')">Delete</button>
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-fw"
+                                    (click)="modal.close('Close click')">Cancel</button>
+                            </div>
+                        </ng-template>
+                        <!--Show not assigned on null values of table-->
+                        <ng-template #shownull>
+                            Not Assigned
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="categories.length<1" class="card-body col-sm-12 text-center">
+            <h4>No Categories Found</h4>
+        </div>
+    </div>
+</div>

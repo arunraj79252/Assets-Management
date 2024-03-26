@@ -1,0 +1,114 @@
+<div class="content-wrapper" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                    <!-- custom breadcrumb -->
+                    <div class="custom_breadcrumb-container">
+                        <ul class="custom_breadcrumb-breadcrumb">
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-firstChild"
+                                [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Dashboard</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item" [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Admininstration</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-lastChild">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title"> Category</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- custom breadcrumb ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="card-body col-sm-10">
+                            <h4 class="card-title"><em class="fas solid fa-file-circle-plus"></em> Edit Category</h4>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <form class="forms-sample " [formGroup]="editCategoryForm">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- Category Name -->
+                                    <div class="form-group row ">
+                                        <label class="col-sm-3 col-form-label " for="exampleInputUsername1"
+                                            [ngClass]="{'error': (name?.touched && name?.errors)}">Category
+                                            Name</label>
+                                        <div class="col-sm-9">
+                                            <input id="exampleInputUsername1" class="form-control form-control-sm"
+                                                placeholder="Category Name" pInputText formControlName="name" />
+
+                                            <!-- error block -->
+                                            <div class="invalid-feedback"
+                                                *ngIf="(name?.touched && name?.errors?.['required'])">
+                                                <sup>*</sup>Enter your name
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group row ">
+                                        <label class="col-sm-3 col-form-label " for="exampleInputUsername1"
+                                            [ngClass]="{'error': (status?.touched && status?.errors)}">Status</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3"
+                                                pInputText formControlName="status">
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+
+                                            </select>
+
+                                            <!-- error block -->
+                                            <div class="invalid-feedback"
+                                                *ngIf="(status?.touched && status?.errors?.['required'])">
+                                                <sup>*</sup>Enter Status
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                        
+                        <div class="row">
+                            <div class="card-body col-md-6 text-center">
+                                <button type="button" class="btn btn-outline-primary btn-fw" (click)="onSubmit()"
+                                    [disabled]="editCategoryForm.invalid">
+                                    Edit Category
+                                </button>
+                               
+                            </div>
+                            <p-toast position="bottom-center" (onClose)="closeToaster()"></p-toast>
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

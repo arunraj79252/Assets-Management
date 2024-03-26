@@ -1,0 +1,14 @@
+.prefix{
+    display:none;  
+}
+.attrib{
+    text-align: center;
+    
+}
+img{
+    border-radius: 30px;
+    transition: all 0.4s ease-out;
+}
+img:hover{
+    transform: scale(1.05);
+}

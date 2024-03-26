@@ -1,0 +1,215 @@
+<div class="content-wrapper" style="padding-top: 100px;">
+  <div class="row">
+    <div class="col-md-12 grid-margin">
+      <div class="row">
+        <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+          <!-- custom breadcrumb -->
+          <div class="custom_breadcrumb-container">
+            <ul class="custom_breadcrumb-breadcrumb">
+              <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-firstChild"
+                [routerLink]="['/dashboard']">
+                <span class="custom_breadcrumb-breadcrumb__inner">
+                  <span class="custom_breadcrumb-breadcrumb__title">Dashboard</span>
+                </span>
+              </li>
+              <li class="custom_breadcrumb-breadcrumb__item" [routerLink]="['/dashboard']">
+                <span class="custom_breadcrumb-breadcrumb__inner">
+                  <span class="custom_breadcrumb-breadcrumb__title">Admininstration</span>
+                </span>
+              </li>
+              <li class="custom_breadcrumb-breadcrumb__item" [routerLink]="['/dashboard/user']">
+                <span class="custom_breadcrumb-breadcrumb__inner">
+                  <span class="custom_breadcrumb-breadcrumb__title">User</span>
+                </span>
+              </li>
+              <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-lastChild">
+                <span class="custom_breadcrumb-breadcrumb__inner">
+                  <span class="custom_breadcrumb-breadcrumb__title"><em class="fas fa-user-plus"></em> Register</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <!-- custom breadcrumb ends -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="card-body col-sm-10">
+              <h4 class="card-title"><em class="fas fa-user-edit"></em> Edit User</h4>
+
+            </div>
+          </div>
+
+          <div class="row">
+
+            <form class="form-sample " [formGroup]="editUserForm">
+              <div class="row">
+                <!-- First Name -->
+                <div class="col-md-6">
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label " [ngClass]="{'error': (name?.touched && name?.errors)}">First
+                      Name</label>
+                    <div class="col-sm-9">
+
+                      <input class="form-control mt-2 form-control-sm " placeholder="First Name" pInputText
+                        formControlName="first_name" />
+                      <!-- error code -->
+                      <div class="invalid-feedback" *ngIf="(name?.touched && name?.errors?.['required'])">
+                        <sup>*</sup>Please enter name
+                      </div>
+                      <div class="invalid-feedback" *ngIf="(name?.touched && name?.errors?.['minlength'])">
+                        <sup>*</sup>Name must be 2 characters long
+                      </div>
+                      <div class="invalid-feedback" *ngIf="(name?.touched && name?.errors?.['pattern'])">
+                        <sup>*</sup>No special charcter allowed
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+                <!-- Last Name -->
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" [ngClass]="{'error': (lname?.touched && lname?.errors)}">Last
+                      Name</label>
+                    <div class="col-sm-9">
+                      <input class="form-control mt-2 form-control-sm" placeholder="Last Name" pInputText
+                        formControlName="sur_name" />
+                      <!-- error code -->
+                      <div class="invalid-feedback" *ngIf="(lname?.touched && lname?.errors?.['required'])">
+                        <sup>*</sup>Please enter last name
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Employee id -->
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      [ngClass]="{'error': employeeid?.touched && employeeid?.errors}">Employee Id</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control mt-2 form-control-sm" readonly placeholder="Employee id"
+                        pInputText formControlName="employee_id" />
+                      <!-- Error code -->
+                      <div class="invalid-feedback" *ngIf="employeeid?.touched && employeeid?.errors?.['required']">
+                        <sup>*</sup>Please enter employee Id
+                      </div>
+                      <div class="invalid-feedback" *ngIf="employeeid?.touched && employeeid?.errors?.['pattern']">
+                        <sup>*</sup>Please enter integer value
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+                <!-- Email -->
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      [ngClass]="{'error': emailid?.touched && emailid?.errors}">Email</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control mt-2 form-control-sm" pInputText formControlName="email"
+                        placeholder="Email" />
+                      <!-- error code -->
+                      <div class="invalid-feedback" *ngIf="emailid?.touched && emailid?.errors?.['required']">
+                        <sup>*</sup>Please enter your email
+                      </div>
+                      <div class="invalid-feedback" *ngIf="emailid?.errors?.['pattern']">
+                        <sup>*</sup>Please enter valid email
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- phone -->
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      [ngClass]="{'error': phone?.touched && phone?.errors}">Phone</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control mt-2 form-control-sm" pInputText formControlName="phone"
+                        placeholder="Phone" />
+
+                      <div class="invalid-feedback" *ngIf="phone?.touched && phone?.errors?.['required']">
+                        <sup>*</sup>Please add phone number
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Role -->
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      [ngClass]="{'error': roles?.touched && roles?.errors}">Role</label>
+                    <div class="col-sm-9">
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3" pInputText
+                        formControlName="role">
+                        <option value="0">SuperAdmin</option>
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                      </select>
+                      <!-- error code -->
+                      <div class="invalid-feedback" *ngIf="roles?.touched && roles?.errors?.['required']">
+                        <sup>*</sup>Please select role
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <!-- status -->
+
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      [ngClass]="{'error': roles?.touched && roles?.errors}">Status</label>
+                    <div class="col-sm-9">
+                      <select class="form-control form-control-sm" id="exampleFormControlSelect3" pInputText
+                        formControlName="status">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                      </select>
+                      <!-- error code -->
+                      <div class="invalid-feedback" *ngIf="status?.touched && status?.errors?.['required']">
+                        <sup>*</sup>Please select status
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="card-body col-md-12 text-center">
+                  <button type="button" class="btn btn-outline-primary btn-fw" (click)="onSubmit()"
+                    [disabled]="editUserForm.invalid">
+                    Edit User
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <p-toast position="bottom-center" (onClose)="closeToaster()"></p-toast>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

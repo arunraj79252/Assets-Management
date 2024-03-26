@@ -1,0 +1,16 @@
+.space{
+    margin-left: 10px;
+  }
+  .error {
+    border-color: #E91E63;
+    color: #E91E63;
+  }
+  
+  .invalid-feedback {
+    display: block;
+    color: #E91E63;
+  }
+  
+  .form-control-sm{
+    min-height: 36px!important;
+  }

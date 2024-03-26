@@ -1,0 +1,52 @@
+#card-title{
+  margin-top:-20px;
+}
+#card-content{
+  margin-top:-20px;
+  margin-bottom:-20px;
+}
+#table{
+  margin-top:-10px;
+}
+.form-control-sm{
+  min-height: 36px!important;
+}
+.space{
+  margin-left: 10px;
+}
+.headbox {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prefix{
+  display:none;  
+}
+.td{
+  padding-left: 100px;
+}
+.mytablehead {
+  border-bottom: 2px solid #4B49AC;
+  margin-bottom: -20px;
+  height:60px;
+  
+}
+@media (max-width: 767px) {
+  .mytablehead {
+    display: none;
+  }
+  .prefix{
+      display:block; 
+      font-weight: 600; 
+      margin-bottom: 5px;
+  }
+
+}
+@media (min-width: 767px) {
+  #accordiondata{
+      height:50px;
+      margin-top: -5px;
+  }
+ 
+}

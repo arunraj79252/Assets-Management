@@ -1,0 +1,200 @@
+<div class="content-wrapper" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                    <!-- custom breadcrumb -->
+                    <div class="custom_breadcrumb-container">
+                        <ul class="custom_breadcrumb-breadcrumb">
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-firstChild"
+                                [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Dashboard</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item" [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Manage</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-lastChild">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title"><em class="fas fa-desktop"></em>
+                                        Add Assets</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- custom breadcrumb ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]=addAssetForm class="form-sample">
+                        <div class="row">
+                            <div class="card-body col-sm-10">
+                                <h4 class="card-title">Add new asset</h4>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Name</label>
+                                    <div class="col-sm-10">
+                                        <input formControlName="name" class="form-control mt-2 form-control-sm"
+                                            placeholder="Name">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Category </label>
+                                    <div class="col-sm-10">
+                                        <select formControlName="category_id" name="Category"
+                                            class="form-control mt-2 form-control-sm">
+                                            <option value="1" selected>All Categories</option>
+                                            <option value="2">Monitors</option>
+                                            <option value="3">Computer Accessories</option>
+                                            <option value="28">Laptops</option>
+                                            <option value="5">Routers</option>
+                                            <option value="6">Adapters</option>
+                                            <option value="7">Cables</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Manufacturer</label>
+                                    <div class="col-sm-10">
+                                        <select formControlName="manufacturer_id" name="manufacturer_id"
+                                        class="form-control mt-2 form-control-sm">
+                                        <option value="1" selected>Dell</option>
+                                        <option value="2">Hp</option>
+                                        
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Model</label>
+                                    <div class="col-sm-10">
+                                        <select formControlName="model_id" name="model_id"
+                                        class="form-control mt-2 form-control-sm">
+                                        <option value="1" selected>Dell Inspirion series</option>
+                                        <option value="2">Others</option>
+                                        
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Serial No</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" formControlName="serial_no" class="form-control mt-2 form-control-sm"
+                                            placeholder="Serial No">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Status</label>
+                                    <div class="col-sm-10">
+                                        <select formControlName="status" name="status"
+                                        class="form-control mt-2 form-control-sm">
+                                        <option value="0" selected>Active</option>
+                                        <option value="1">Inacticve</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Assigned to</label>
+                                    <div class="col-sm-10">
+                                        <select formControlName="employee_id" name="employee_id"
+                                        class="form-control mt-2 form-control-sm">
+                                        <option value="1" selected>Gokul</option>
+                                        <option value="2">Carter</option>
+                                        <option value="3">Jack</option>
+                                        <option value="4">Tony</option>
+                                        <option value="5">Natasha</option>
+                                        <option value="6">Joshua</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Assigned by</label>
+                                    <div class="col-sm-10">
+                                        <select formControlName="user_id" name="user_id"
+                                        class="form-control mt-2 form-control-sm">
+                                        <option value="1" selected>Sooraj</option>
+                                        <option value="2">User</option>
+                                        <option value="3">S</option>
+                                        <option value="4">Test</option>
+                                        <option value="5">Eldho</option>
+                                        <option value="6">Joshua</option>
+                                    </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Group</label>
+                                    <div class="col-sm-10">
+                                        <input formControlName="group" class="form-control mt-2 form-control-sm"
+                                            placeholder="Group">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Group in charge</label>
+                                    <div class="col-sm-10">
+                                        <input formControlName="group_in_charge"
+                                            class="form-control mt-2 form-control-sm" placeholder="Group in charge">
+                                    </div>
+                                </div>
+                            </div>
+                                                        
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Audit status</label>
+                                    <div class="col-sm-10">
+                                        <select formControlName="audit_status" name="audit_status"
+                                            class="form-control mt-2 form-control-sm">
+                                            <option value="0" selected>Not Audited</option>
+                                            <option value="1">Audited</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="form-group row">
+                            <div class="card-body col-sm-10 " style="display: grid"></div>
+                            <div class="card-body col-sm-2" style="display: grid">
+                                <button type="button" class="btn btn-sm btn-outline-primary btn-fw"
+                                    (click)="addAsset()">
+                                    Add Asset
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

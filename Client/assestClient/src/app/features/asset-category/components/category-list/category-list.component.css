@@ -1,0 +1,43 @@
+.prefix{
+    display:none;  
+}
+.attrib{
+    text-align: center;
+    
+}
+img{
+    border-radius: 30px;
+    transition: all 0.4s ease-out;
+}
+img:hover{
+    transform: scale(1.05);
+}
+.mytablehead {
+    border-bottom: 2px solid #4B49AC;
+    margin-bottom: -20px;
+    height:60px;
+    
+  }
+  .tablehead {
+    border-bottom: 2px solid white;
+    margin-bottom: -20px;
+    height:60px;
+    
+  }
+@media (max-width: 767px) {
+    .mytablehead {
+      display: none;
+    }
+    .prefix{
+        display:block; 
+        font-weight: 600; 
+        margin-bottom: 5px;
+    }
+  }
+  @media (min-width: 767px) {
+    #accordiondata{
+        height:50px;
+        margin-top: -5px;
+    }
+   
+  }

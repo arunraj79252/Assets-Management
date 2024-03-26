@@ -1,0 +1,33 @@
+<div class="content-wrapper" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                    <!-- custom breadcrumb -->
+                    <div class="custom_breadcrumb-container">
+                        <ul class="custom_breadcrumb-breadcrumb">
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-firstChild"
+                                [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Dashboard</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item" [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Admininstration</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-lastChild">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title"> Category</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- custom breadcrumb ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+<app-category-list></app-category-list>
+</div>

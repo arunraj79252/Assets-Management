@@ -1,0 +1,144 @@
+<div class="content-wrapper" style="padding-top: 100px;">
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-12 mb-4 mb-xl-0">
+                    <!-- custom breadcrumb -->
+                    <div class="custom_breadcrumb-container">
+                        <ul class="custom_breadcrumb-breadcrumb">
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-firstChild"
+                                [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Dashboard</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item" [routerLink]="['/dashboard']">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title">Manage</span>
+                                </span>
+                            </li>
+                            <li class="custom_breadcrumb-breadcrumb__item custom_breadcrumb-breadcrumb__item-lastChild">
+                                <span class="custom_breadcrumb-breadcrumb__inner">
+                                    <span class="custom_breadcrumb-breadcrumb__title"><em class="fas fa-desktop"></em>
+                                        Assets</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- custom breadcrumb ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="categorysection">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-sample">
+
+
+                        <div class="row">
+                            <div class="card-body col-sm-10">
+                                <h4 class="card-title" id="card-title"><em class="fas fa-laptop-code"></em> Filter By
+                                </h4>
+                            </div>
+
+                            <div class="col-md-12" id="card-content">
+                                <div class="form-group row">
+                                    <label class="col-sm-1 col-form-label">Category</label>
+                                    <div class="col-sm-5">
+                                        <select name="Category" id="category" class="form-control mt-2 form-control-sm"
+                                            (change)="setCategoryId()">
+                                            <option value="" selected>All categories</option>
+                                            <option *ngFor="let category of categories"
+                                                value="{{category.category_id}}">{{category.name}}</option>
+
+                                        </select>
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Model</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" id="model" class="form-control mt-2 form-control-sm"
+                                            placeholder="Search models" (blur)="setModel()" (keyup.enter)="setModel()" (input)="showModelHelp()">
+                                            <p id="helptext" *ngIf="modelhelp">Hit enter or click somewhere else to search</p>
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Manufacturer</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" id="manufacturer" class="form-control mt-2 form-control-sm"
+                                            placeholder="Search manufacturers" (blur)="setManufacturer()" (keyup.enter)="setManufacturer()" (input)="showManufacturerHelp()">
+                                            <p id="helptext" *ngIf="manufacturerhelp">Hit enter or click somewhere else to search</p>
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Audit Status</label>
+                                    <div class="col-sm-5">
+                                        <select name="auditstatus" id="auditstatus"
+                                            class="form-control mt-2 form-control-sm" (change)="setAuditStatus()">
+                                            <option value="" selected>All</option>
+                                            <option value="0">Audited</option>
+                                            <option value="1">Not Audited</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Assignment</label>
+                                    <div class="col-sm-5">
+                                        <select name="assignment" id="assignment"
+                                            class="form-control mt-2 form-control-sm" (change)="setAssignmentStatus()">
+                                            <option value="" selected>All</option>
+                                            <option value="0">Not Assigned</option>
+                                            <option value="1">Assigned</option>
+
+                                        </select>
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Assigned To</label>
+                                    <div class="col-sm-5">
+                                        <select name="assignedto" id="assignedto"
+                                            class="form-control mt-2 form-control-sm" (change)="setAssignedTo()">
+                                            <option value="" selected>Anyone</option>
+                                            <option *ngFor="let user of userswithassets" value="{{user.user_id}}">
+                                                {{user.first_name}} {{user.sur_name}}</option>
+
+                                        </select>
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Assigned On</label>
+                                    <div class="col-sm-5">
+                                        <select name="assignedon" id="assignedon"
+                                            class="form-control mt-2 form-control-sm" (change)="setAssignedOn()">
+                                            <option value="0" selected>Any Day</option>
+                                            <option value="1">Pick a Date</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Choose Date</label>
+                                    <div class="col-sm-5">
+                                        <input type="date" id="date" class="form-control mt-2 form-control-sm"
+                                            placeholder="Choose a Date" (change)="setDate()">
+                                    </div>
+
+                                    <label class="col-sm-1 col-form-label">Status</label>
+                                    <div class="col-sm-5">
+                                        <select name="status" id="status" class="form-control mt-2 form-control-sm"
+                                            (change)="setStatus()">
+                                            <option value="" selected>All</option>
+                                            <option value="0">Available</option>
+                                            <option value="1">Not Available</option>
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <app-asset-list id="assetsection" [categoryid]="categoryid" [model]="model" [manufacturer]="manufacturer" [status]="status" [auditstatus]="auditstatus"
+            [assignment]="assignment" [assignedto]="assignedto" [date]="date">
+        </app-asset-list>
+    </div>
+</div>
